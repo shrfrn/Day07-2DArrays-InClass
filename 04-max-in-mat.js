@@ -4,6 +4,8 @@ console.table(gMat1)
 var gMax = getMaxVal(gMat1)
 console.log('max: ', gMax)
 
+// Stage 1 - Generate a matrix with random values
+
 function generateMat(rows, cols){
     var mat = []
     for(var i = 0; i < rows; i++){
@@ -15,7 +17,8 @@ function generateMat(rows, cols){
     return mat
 }
 
-// Start like this
+// Stage 2 - scan and print the matrix
+
 function getMaxVal(mat){
     for(var i = 0; i < mat.length; i++){
         var currLine = mat[i]
@@ -28,30 +31,32 @@ function getMaxVal(mat){
     }
 }
 
-// With temp vars
-// function getMaxVal(mat){
-//     var max = -Infinity
-//     for(var i = 0; i < mat.length; i++){
-//         var currLine = mat[i]
-        
-//         for(var j = 0; j < mat[i].length; j++){
-//             var currNum = currLine[j]
-//             if(max < currNum) max = currNum
-//         }
-//     }
-//     return max
-// }
+// Stage 3 - With temp vars
 
-// Without temp vars
-// function getMaxVal(mat){
-//     var max = -Infinity
-//     for(var i = 0; i < mat.length; i++){
-//         for(var j = 0; j < mat[i].length; j++){
-//             if(max < mat[i][j]) max = mat[i][j]
-//         }
-//     }
-//     return max
-// }
+function getMaxVal(mat){
+    var max = -Infinity
+    for(var i = 0; i < mat.length; i++){
+        var currLine = mat[i]
+        
+        for(var j = 0; j < mat[i].length; j++){
+            var currNum = currLine[j]
+            if(max < currNum) max = currNum
+        }
+    }
+    return max
+}
+
+// Stage 4 - Without temp vars
+
+function getMaxVal(mat){
+    var max = -Infinity
+    for(var i = 0; i < mat.length; i++){
+        for(var j = 0; j < mat[i].length; j++){
+            if(max < mat[i][j]) max = mat[i][j]
+        }
+    }
+    return max
+}
 
 function getRandomInt(min, max) {
     min = Math.ceil(min)

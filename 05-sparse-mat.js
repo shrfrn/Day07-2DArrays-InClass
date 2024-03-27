@@ -7,10 +7,11 @@ var gMat1 = [
     [0, 0, 4, 5, 0],
     [0, 0, 0, 5, 6],
 ]
+
 console.log('isSparseMatrix(gMat1): ', isSparseMatrix(gMat1))
 function isSparseMatrix(mat){
 
-    // Find out if this is an N * N matrix
+    // Find out if this is a matrix (rows === cols)
     var rows = mat.length
     var cols = mat[0].length
 
