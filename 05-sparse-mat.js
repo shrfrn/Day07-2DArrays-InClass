@@ -17,6 +17,10 @@ function isSparseMatrix(mat){
 
     if(rows !== cols) return false
 
+    for(var i = 1; i < rows; i++){
+        if (mat[i].length !== cols) return false
+    }
+
     // Count non-zero elements
     var nonZeroCount = 0
     for(var i = 0; i < mat.length; i++){
