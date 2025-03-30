@@ -51,26 +51,22 @@ function isSparseMatrix(mat){
 
 // Now merge the two loops
 function isSparseMatrix(mat) {
-    // Find out if this is an N * N matrix
-    var rows = mat.length
-    var cols = mat[0].length
-
-    if (rows !== cols) return false
-
-    // Count non-zero elements
     var nonZeroCount = 0
-    var nonZeroCountInLine
+    
     for (var i = 0; i < mat.length; i++) {
-        nonZeroCountInLine = 0
+        // Check if all rows are the same length = mat.length
+        if (mat[i].length !== mat.length) return false
+        
+        var nonZeroInLine = 0
         for (var j = 0; j < mat[i].length; j++) {
             if (mat[i][j]) {
                 nonZeroCount++
                 // Check if there aren't too many of them
                 if (nonZeroCount > 0.2 * mat.length ** 2) return false
 
-                nonZeroCountInLine++
+                nonZeroInLine++
                 // Check if there are more than 2 non zero values in a row
-                if (nonZeroCountInLine > 2) return false
+                if (nonZeroInLine > 2) return false
             }
         }
     }
